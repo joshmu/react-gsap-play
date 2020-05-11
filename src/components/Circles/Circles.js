@@ -4,7 +4,6 @@ import './Circles.css'
 import { TweenMax, Power3 } from 'gsap'
 
 const Circles = () => {
-  const app = useRef(null)
   const circle = useRef(null)
   const circleRed = useRef(null)
   const circleBlue = useRef(null)
