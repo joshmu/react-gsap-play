@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './App.css'
 
-import { TweenMax } from 'gsap'
-
-import Circles from './components/Circles/Circles'
+import Reveal from './components/Reveal/Reveal'
+import { TweenMax } from 'gsap/gsap-core'
 
 function App() {
   const app = useRef(null)
@@ -15,7 +14,7 @@ function App() {
   return (
     <div ref={app} className='App'>
       <header className='App-header'>
-        <Circles />
+        <Reveal />
       </header>
     </div>
   )

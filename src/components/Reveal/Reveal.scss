@@ -1,0 +1,33 @@
+.main {
+  .container {
+    width: 720px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    visibility: none;
+  }
+}
+
+.img-container {
+  width: 720px;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: white;
+  }
+  img {
+    width: 720px;
+    // height: 480px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
