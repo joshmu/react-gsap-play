@@ -1,0 +1,37 @@
+.testimonial-section {
+  $text: #2e293c;
+  $secondary: #a09da6;
+
+  color: $text;
+  font-size: 16px;
+  .testimonial-container {
+    .arrows {
+      &.right {
+      }
+    }
+    .inner {
+      .t-image {
+        ul {
+          li {
+            img {
+            }
+          }
+        }
+      }
+      .t-content {
+        ul {
+          li {
+            .content-inner {
+              .quote {
+              }
+              .name {
+              }
+              .title {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

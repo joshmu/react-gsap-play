@@ -1,22 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
+
+import 'reset-css'
 import './App.css'
 
-import Reveal from './components/Reveal/Reveal'
 // import Circles from './components/Circles/Circles'
-import { TweenMax } from 'gsap/gsap-core'
+// import Reveal from './components/Reveal/Reveal'
+import Slider from './components/Slider/Slider'
 
 function App() {
-  const app = useRef(null)
-
-  useEffect(() => {
-    TweenMax.to(app.current, 0, { css: { visibility: 'visible' } })
-  }, [])
-
   return (
-    <div ref={app} className='App'>
+    <div className='App'>
       <header className='App-header'>
         {/* <Circles /> */}
-        <Reveal />
+        {/* <Reveal /> */}
+        <Slider />
       </header>
     </div>
   )
