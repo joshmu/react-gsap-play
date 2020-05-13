@@ -112,7 +112,7 @@ $containerHeight: 300px;
             opacity: 0;
 
             &:nth-child(1) {
-              opacity: 1; // REMOVE LATER
+              // gsap will render this opacity: 1 on load
               &:after {
                 content: '';
                 position: absolute;
