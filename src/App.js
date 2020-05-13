@@ -5,16 +5,16 @@ import './App.css'
 
 // import Circles from './components/Circles/Circles'
 // import Reveal from './components/Reveal/Reveal'
-import Slider from './components/Slider/Slider'
+// import Slider from './components/Slider/Slider'
+import Hero from './components/Hero/Hero'
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        {/* <Circles /> */}
-        {/* <Reveal /> */}
-        <Slider />
-      </header>
+      {/* <Circles /> */}
+      {/* <Reveal /> */}
+      {/* <Slider /> */}
+      <Hero />
     </div>
   )
 }

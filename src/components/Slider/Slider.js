@@ -61,14 +61,7 @@ const Slider = () => {
     }
   }, [clickDisabled])
 
-  const slideRight = ({ idx, duration = 1, pos }) => {
-    TweenLite.to(imageList.current.children[idx], duration, {
-      x: imageWidth * pos,
-      ease: Power3.easeOut,
-    })
-  }
-
-  const slideLeft = (idx, pos, duration = 1) => {
+  const slideImg = (idx, pos, duration = 1) => {
     TweenLite.to(imageList.current.children[idx], duration, {
       x: -imageWidth * pos,
       ease: Power3.easeOut,
@@ -81,37 +74,36 @@ const Slider = () => {
     if (forward) {
       console.log('forward')
       if (next === 1) {
-        slideLeft(0, 1)
-        slideLeft(1, 1)
-        slideLeft(2, 1, 0)
+        slideImg(0, 1)
+        slideImg(1, 1)
+        slideImg(2, 1, 0)
       }
       if (next === 2) {
-        slideLeft(0, -1, 0)
-        slideLeft(1, 2)
-        slideLeft(2, 2)
+        slideImg(0, -1, 0)
+        slideImg(1, 2)
+        slideImg(2, 2)
       }
       if (next === 0) {
-        slideLeft(0, 0)
-        slideLeft(1, 0, 0)
-        slideLeft(2, 3)
+        slideImg(0, 0)
+        slideImg(1, 0, 0)
+        slideImg(2, 3)
       }
     } else {
       console.log('backwards')
       if (next === 1) {
-        console.log('here')
-        slideLeft(0, 1, 0)
-        slideLeft(1, 1)
-        slideLeft(2, 1)
+        slideImg(0, 1, 0)
+        slideImg(1, 1)
+        slideImg(2, 1)
       }
       if (next === 2) {
-        slideLeft(0, -1)
-        slideLeft(1, 2, 0)
-        slideLeft(2, 2)
+        slideImg(0, -1)
+        slideImg(1, 2, 0)
+        slideImg(2, 2)
       }
       if (next === 0) {
-        slideLeft(0, 0)
-        slideLeft(1, 0)
-        slideLeft(2, 3, 0)
+        slideImg(0, 0)
+        slideImg(1, 0)
+        slideImg(2, 3, 0)
       }
     }
   }
