@@ -35,6 +35,7 @@ const Slider = () => {
   const testimonialList = useRef(null)
 
   const [activeId, setActiveId] = useState(1)
+  const [clickDisabled, setClickDisabled] = useState(false)
 
   const imageWidth = 170
 
@@ -48,7 +49,17 @@ const Slider = () => {
         opacity: 1,
       })
     }
-  }, [imageList])
+  }, [])
+
+  useEffect(() => {
+    if (clickDisabled) {
+      // console.log('click disabled')
+      setTimeout(() => {
+        setClickDisabled(false)
+        // console.log('click enabled')
+      }, 1000)
+    }
+  }, [clickDisabled])
 
   const slideRight = ({ idx, duration = 1, pos }) => {
     TweenLite.to(imageList.current.children[idx], duration, {
@@ -123,6 +134,9 @@ const Slider = () => {
   }
 
   const navigate = ({ forward = true }) => {
+    if (clickDisabled) return
+    setClickDisabled(true)
+
     console.log(forward ? 'next' : 'prev')
 
     const current = activeId
