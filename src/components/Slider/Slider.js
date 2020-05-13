@@ -34,27 +34,75 @@ const Slider = () => {
   const imageList = useRef(null)
   const testimonialList = useRef(null)
 
-  const [activeId, setActiveId] = useState(0)
+  const [activeId, setActiveId] = useState(1)
 
   const imageWidth = 170
 
+  // preset slider one over
   useEffect(() => {
-    TweenLite.to(testimonialList.current.children[0], 0, {
-      opacity: 1,
+    if (imageList && imageList.current) {
+      TweenLite.staggerTo(imageList.current.children, 0, {
+        x: imageWidth * -1,
+      })
+      TweenLite.to(testimonialList.current.children[1], 0, {
+        opacity: 1,
+      })
+    }
+  }, [imageList])
+
+  const slideRight = ({ idx, duration = 1, pos }) => {
+    TweenLite.to(imageList.current.children[idx], duration, {
+      x: imageWidth * pos,
+      ease: Power3.easeOut,
     })
-  }, [])
+  }
+
+  const slideLeft = (idx, pos, duration = 1) => {
+    TweenLite.to(imageList.current.children[idx], duration, {
+      x: -imageWidth * pos,
+      ease: Power3.easeOut,
+    })
+  }
 
   // Function for next & prev slide
-  const slide = (current, next) => {
-    TweenLite.staggerTo(
-      imageList.current.children,
-      1,
-      {
-        x: -imageWidth * next,
-        ease: Power3.easeOut,
-      },
-      0
-    )
+  const slide = ({ current, next, forward }) => {
+    console.log({ current, next, forward })
+    if (forward) {
+      console.log('forward')
+      if (next === 1) {
+        slideLeft(0, 1)
+        slideLeft(1, 1)
+        slideLeft(2, 1, 0)
+      }
+      if (next === 2) {
+        slideLeft(0, -1, 0)
+        slideLeft(1, 2)
+        slideLeft(2, 2)
+      }
+      if (next === 0) {
+        slideLeft(0, 0)
+        slideLeft(1, 0, 0)
+        slideLeft(2, 3)
+      }
+    } else {
+      console.log('backwards')
+      if (next === 1) {
+        console.log('here')
+        slideLeft(0, 1, 0)
+        slideLeft(1, 1)
+        slideLeft(2, 1)
+      }
+      if (next === 2) {
+        slideLeft(0, -1)
+        slideLeft(1, 2, 0)
+        slideLeft(2, 2)
+      }
+      if (next === 0) {
+        slideLeft(0, 0)
+        slideLeft(1, 0)
+        slideLeft(2, 3, 0)
+      }
+    }
   }
 
   const zoomImage = (idx) => {
@@ -64,7 +112,7 @@ const Slider = () => {
     })
   }
 
-  const fadeText = (current, next) => {
+  const fadeText = ({ current, next }) => {
     TweenLite.to(testimonialList.current.children[current], 1, {
       opacity: 0,
     })
@@ -86,9 +134,10 @@ const Slider = () => {
     }
     console.log({ current, next })
 
-    slide(current, next)
+    slide({ current, next, forward })
+
     zoomImage(next)
-    fadeText(current, next)
+    fadeText({ current, next })
 
     setActiveId(next)
   }

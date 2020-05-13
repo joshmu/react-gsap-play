@@ -34,6 +34,7 @@ $containerHeight: 300px;
     position: relative;
 
     .arrows {
+      z-index: 99;
       // background-color: pink;
       position: absolute;
       display: flex;
