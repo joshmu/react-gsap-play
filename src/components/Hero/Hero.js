@@ -1,4 +1,5 @@
 import React from 'react'
+import './Hero.scss'
 
 import girlImg from '../../images/hero/girl.webp'
 import boyImg from '../../images/hero/boy.webp'
@@ -23,7 +24,7 @@ const Hero = () => {
                   </div>
                 </div>
                 <div className='hero-content-line'>
-                  <div className='hero-content-line-inner'>by behaviour.</div>
+                  <div className='hero-content-line-inner'>by behaviours.</div>
                 </div>
               </h1>
               <p>

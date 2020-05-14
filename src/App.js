@@ -1,6 +1,6 @@
 import React from 'react'
 
-import 'reset-css'
+// import 'reset-css'
 import './App.css'
 
 // import Circles from './components/Circles/Circles'

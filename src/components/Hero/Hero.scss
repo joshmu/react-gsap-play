@@ -1,3 +1,118 @@
-.hero-container {
-  background: salmon;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+.hero {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  height: 100vh; /* fill in the window */
+  .container {
+    width: 1440px;
+    min-width: 1440px;
+    margin: 0 auto; /* to center */
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 24px;
+      height: 100vh;
+      .hero-content {
+        width: 50%;
+        .hero-content-inner {
+          width: 400px;
+          margin: 0 auto;
+          color: #323232;
+          h1 {
+            font-weight: 500;
+            font-size: 32px;
+            margin-bottom: 24px;
+            .hero-content-line {
+              margin: 0;
+              height: 44px;
+              overflow: hidden;
+              .hero-content-line-inner {
+              }
+            }
+          }
+          p {
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 300;
+            padding-right: 48px;
+            margin-bottom: 56px;
+          }
+          .btn-row {
+            position: relative;
+            &:before {
+              content: '';
+              position: absolute;
+              width: 56px;
+              height: 1px;
+              background-color: #dfdfdf;
+              top: 50%;
+              left: -68px;
+            }
+            .explore-button {
+              background: none;
+              border: none;
+              font-size: 1px;
+              padding: 0;
+              cursor: pointer;
+              text-transform: uppercase;
+              font-weight: 700;
+              letter-spacing: 0.7px;
+              display: flex;
+              align-items: center;
+              position: relative;
+
+              &:focus {
+                outline: none;
+              }
+              .arrow-icon {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                background-color: #007fff;
+                height: 42px;
+                width: 42px;
+                border-radius: 100%;
+                left: 80px;
+              }
+            }
+          }
+        }
+      }
+      .hero-images {
+        width: 50%;
+        height: 100vh;
+        position: relative;
+        .hero-images-inner {
+          .hero-image {
+            position: absolute;
+            overflow: hidden;
+            &.girl {
+              top: 0;
+              right: 0;
+              width: 45%;
+              height: 55%;
+            }
+            &.boy {
+              bottom: 24px;
+              left: 0px;
+              width: 52%;
+              height: 65%;
+            }
+            img {
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
